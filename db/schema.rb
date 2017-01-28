@@ -11,9 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170127224646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
+
+  create_table "locations", force: :cascade do |t|
+    t.string    "name"
+    t.string    "address_line_1"
+    t.string    "address_line_2"
+    t.string    "postal_code_name"
+    t.string    "postal_code_suffix"
+    t.string    "phone_number"
+    t.decimal   "radius_in_miles",                                                             precision: 5, scale: 2
+    t.geography "lonlat",             limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.datetime  "created_at",                                                                                          null: false
+    t.datetime  "updated_at",                                                                                          null: false
+  end
+
+  add_index "locations", ["lonlat"], name: "index_locations_on_lonlat", using: :gist
 
 end
