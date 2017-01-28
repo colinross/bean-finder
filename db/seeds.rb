@@ -3,5 +3,8 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# When it matters, I can find a way to make better coordinates for seeds 
+10.times do |i|
+  Location.create(lonlat: "POINT(#{i} #{-i})")
+end

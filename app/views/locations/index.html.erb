@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.name %></td>
+        <td><%= location.address_line_1 %></td>
+        <td><%= location.postal_code_name %></td>
+        <td><%= location.coordinates %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
