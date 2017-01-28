@@ -1,0 +1,9 @@
+Setup:
+Run `bin/setup` to install dependencies and setup the database
+
+Running the application:
+ - Run `bin/rails server` to start a WEBBrick instance serving the application on port 3000.
+ - Navigate to "http://http://localhost:3000/"  in your prefered web client (Safari, Chrome, etc.)
+
+To run the test suite:
+`RAILS_ENV=test rake db:create` then `bin/rake`
