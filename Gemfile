@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+# 
+gem 'immutable-struct'
 
 group :development, :test do
   gem 'pry-byebug'
