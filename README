@@ -6,4 +6,4 @@ Running the application:
  - Navigate to "http://http://localhost:3000/"  in your prefered web client (Safari, Chrome, etc.)
 
 To run the test suite:
-`RAILS_ENV=test rake db:create` then `bin/rake`
+Run `rake db:test:prepare` then `rake`
