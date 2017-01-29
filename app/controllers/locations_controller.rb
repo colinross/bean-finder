@@ -1,7 +1,9 @@
 class LocationsController < ApplicationController
+  GPS_Location = ImmutableStruct.new(:x, :y)
+  DEFAULT_ORIGIN = GPS_Location.new(y: "33.1243208", x: "-117.32582479999996")
   # GET /locations
   def index
-    @locations = Location.all
+    @locations = Location.with_and_by_distance_from_origin_in_miles((current_location.present?) ? current_location : DEFAULT_ORIGIN)
   end
 
   # POST /locations/upload
@@ -30,5 +32,9 @@ class LocationsController < ApplicationController
   private
     def upload_file
       params.require(:locations).require(:file)
+    end
+
+    def current_location
+      params.permit(:current_location)
     end
 end

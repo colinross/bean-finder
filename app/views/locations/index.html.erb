@@ -16,7 +16,7 @@
         <td><%= location.address_line_1 %></td>
         <td><%= location.postal_code_name %></td>
         <td><%= location.coordinates %></td>
-        <td><%= location.radius %></td>
+        <td><%= number_with_precision(location.distance, :precision => 2, :significant => false) %> Miles</td>
       </tr>
     <% end %>
   </tbody>
