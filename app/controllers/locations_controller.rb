@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   DEFAULT_ORIGIN = GPS_Location.new(y: "33.1243208", x: "-117.32582479999996")
   # GET /locations
   def index
-    @locations = Location.with_and_by_distance_from_origin_in_miles((current_location.present?) ? current_location : DEFAULT_ORIGIN)
+    @locations = Location.with_and_by_distance_from_origin_in_miles((origin.present?) ? origin : DEFAULT_ORIGIN)
   end
 
   # POST /locations/upload
@@ -34,7 +34,11 @@ class LocationsController < ApplicationController
       params.require(:locations).require(:file)
     end
 
-    def current_location
-      params.permit(:current_location)
+    def origin
+      o = params.permit(:origin)
+      return nil unless o.present?
+      o = o[:origin].split(',')
+      o = o.map {|v| v.strip }
+      GPS_Location.new(y: o.first, x: o.last)
     end
 end
