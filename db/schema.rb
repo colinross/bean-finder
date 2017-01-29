@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170127224646) do
     t.string    "postal_code_name"
     t.string    "postal_code_suffix"
     t.string    "phone_number"
-    t.decimal   "radius_in_miles",                                                             precision: 5, scale: 2
+    t.decimal   "radius",                                                                      precision: 5, scale: 2
     t.geography "lonlat",             limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.datetime  "created_at",                                                                                          null: false
     t.datetime  "updated_at",                                                                                          null: false

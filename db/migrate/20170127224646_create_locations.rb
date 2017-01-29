@@ -7,7 +7,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string :postal_code_name
       t.string :postal_code_suffix
       t.string :phone_number
-      t.decimal :radius_in_miles, precision: 5, scale: 2 # 0.01 - 999.99 Miles
+      t.decimal :radius, precision: 5, scale: 2 # 0.01 - 999.99 Miles
       t.st_point :lonlat, geographic: true
 
       t.timestamps null: false
