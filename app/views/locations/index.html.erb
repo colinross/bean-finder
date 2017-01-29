@@ -16,7 +16,13 @@
         <td><%= location.address_line_1 %></td>
         <td><%= location.postal_code_name %></td>
         <td><%= location.coordinates %></td>
+        <td><%= location.radius %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= form_tag({action: :upload}, multipart: true) do %>
+  <%= file_field_tag 'locations[file]' %>
+  <%= submit_tag("Upload") %>
+<% end %>
