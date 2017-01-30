@@ -1,5 +1,7 @@
 Setup:
-Run `bin/setup` to install dependencies and setup the database
+This packge requires the PostGIS extension (ontop of postgres) to be installed on the host system. Please see http://postgis.net/install/ for more instructions.
+The application will set up the database and the extension to be used.
+Run `bin/setup` to install dependencies and setup the database.
 
 Running the application:
  - Run `bin/rails server` to start a WEBBrick instance serving the application on port 3000.
